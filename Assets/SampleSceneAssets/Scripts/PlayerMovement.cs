@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    
+
+    public AudioSource walking;
 
     Vector3 velocity;
     bool isGrounded;
@@ -85,5 +86,10 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        //if (Mathf.Abs(velocity.y) > .1f)
+        //    walking.UnPause();
+        //else
+        //    walking.Pause();
     }
 }
